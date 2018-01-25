@@ -64,6 +64,7 @@ func ParseConfig() *Config {
 	case "mail":
 		config.MailServer = parseMailServer(section)
 		config.MailUser = parseMailUser(section)
+		config.WebHook = parseWebHook(section)
 	case "slack":
 		config.Slack = parseSlack(section)
 	case "webhook":
