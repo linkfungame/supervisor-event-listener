@@ -54,7 +54,7 @@ func ParseConfig() *Config {
 	section := file.Section("default")
 	notifyType := section.Key("notify_type").String()
 	notifyType = strings.TrimSpace(notifyType)
-	if !utils.InStringSlice([]string{"mail", "slack", "webhook"}, notifyType) {
+	if !utils.InStringSlice([]string{"mail", "slack", "webhook", "dingtalk"}, notifyType) {
 		Exit("不支持的通知类型-" + notifyType)
 	}
 

@@ -25,12 +25,11 @@ func (mail *Mail) Send(message event.Message) error {
 		Conf.MailServer.Password,
 	)
 	err := mailer.DialAndSend(gomailMessage)
+	err = new(DingTalk).Send(message)
 	if err == nil {
 		return nil
 	}
 	errorMessage := fmt.Sprintf("邮件发送失败#%s", err.Error())
-
-	new(DingTalk).Send(message)
 
 	return errors.New(errorMessage)
 }
