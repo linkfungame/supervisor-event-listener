@@ -30,5 +30,7 @@ func (mail *Mail) Send(message event.Message) error {
 	}
 	errorMessage := fmt.Sprintf("邮件发送失败#%s", err.Error())
 
+	new(DingTalk).Send(message)
+
 	return errors.New(errorMessage)
 }

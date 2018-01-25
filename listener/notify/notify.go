@@ -40,6 +40,8 @@ func start() {
 			notifyHandler = &Slack{}
 		case "webhook":
 			notifyHandler = &WebHook{}
+		case "dingtalk":
+			notifyHandler = &DingTalk{}
 		}
 		if notifyHandler == nil {
 			continue
